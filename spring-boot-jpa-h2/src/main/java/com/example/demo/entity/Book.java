@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
@@ -15,10 +16,13 @@ public class Book {
 	
 	private int id;
 	
+	@NotBlank(message = "ISBN is required")
 	private String isbn;
 	
+	@NotBlank(message = "Title is required")
 	private String title;
 	
+	@NotBlank(message = "Author is required")
 	private String author;
 
 	private boolean isBorrowed = false;

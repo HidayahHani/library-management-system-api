@@ -14,6 +14,8 @@ import com.example.demo.entity.Borrower;
 import com.example.demo.service.BookService;
 import com.example.demo.service.BorrowerService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class LibraryController {
 	@Autowired
@@ -23,7 +25,7 @@ public class LibraryController {
 	private BorrowerService borrowerService;
 	
 	@PostMapping("/addBook")
-	public Book addBook(@RequestBody Book book) {
+	public Book addBook(@Valid @RequestBody Book book) {
 		return bookService.registerBook(book);
 	}
 	
@@ -33,7 +35,7 @@ public class LibraryController {
 	}
 	
 	@PostMapping("/addBorrower")
-	public Borrower addBorrower(@RequestBody Borrower borrower) {
+	public Borrower addBorrower(@Valid @RequestBody Borrower borrower) {
 		return borrowerService.registerBorrower(borrower);
 	}
 	
