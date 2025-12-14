@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.hidayahhani.librarymanagement.controller;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.Book;
-import com.example.demo.entity.Borrower;
-import com.example.demo.service.BookService;
-import com.example.demo.service.BorrowerService;
+import com.hidayahhani.librarymanagement.entity.Book;
+import com.hidayahhani.librarymanagement.entity.Borrower;
+import com.hidayahhani.librarymanagement.service.BookService;
+import com.hidayahhani.librarymanagement.service.BorrowerService;
 
 import jakarta.validation.Valid;
 

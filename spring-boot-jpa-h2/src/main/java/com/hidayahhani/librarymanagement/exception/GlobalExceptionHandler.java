@@ -1,4 +1,4 @@
-package com.example.demo.exception;
+package com.hidayahhani.librarymanagement.exception;
 
 import java.util.HashMap;
 import java.util.Map;

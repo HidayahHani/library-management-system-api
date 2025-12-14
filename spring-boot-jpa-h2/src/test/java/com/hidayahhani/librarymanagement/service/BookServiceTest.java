@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.hidayahhani.librarymanagement.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -17,10 +17,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.example.demo.entity.Book;
-import com.example.demo.entity.Borrower;
-import com.example.demo.repo.BookRepository;
-import com.example.demo.repo.BorrowerRepository;
+import com.hidayahhani.librarymanagement.entity.Book;
+import com.hidayahhani.librarymanagement.entity.Borrower;
+import com.hidayahhani.librarymanagement.repo.BookRepository;
+import com.hidayahhani.librarymanagement.repo.BorrowerRepository;
+import com.hidayahhani.librarymanagement.service.BookService;
 
 @ExtendWith(MockitoExtension.class)
 class BookServiceTest {

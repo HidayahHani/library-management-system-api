@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.hidayahhani.librarymanagement.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -9,8 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.example.demo.entity.Borrower;
-import com.example.demo.repo.BorrowerRepository;
+import com.hidayahhani.librarymanagement.entity.Borrower;
+import com.hidayahhani.librarymanagement.repo.BorrowerRepository;
+import com.hidayahhani.librarymanagement.service.BorrowerService;
 
 @ExtendWith(MockitoExtension.class)
 class BorrowerServiceTest {

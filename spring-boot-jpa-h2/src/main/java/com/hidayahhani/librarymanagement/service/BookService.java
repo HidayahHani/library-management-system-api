@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.hidayahhani.librarymanagement.service;
 
 import java.util.List;
 import java.util.Objects;
@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.example.demo.entity.Book;
-import com.example.demo.entity.Borrower;
-import com.example.demo.repo.BookRepository;
-import com.example.demo.repo.BorrowerRepository;
+import com.hidayahhani.librarymanagement.entity.Book;
+import com.hidayahhani.librarymanagement.entity.Borrower;
+import com.hidayahhani.librarymanagement.repo.BookRepository;
+import com.hidayahhani.librarymanagement.repo.BorrowerRepository;
 
 @Service
 public class BookService {

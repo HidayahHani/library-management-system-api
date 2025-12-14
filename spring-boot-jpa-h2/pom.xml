@@ -8,11 +8,11 @@
 		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.hidayahhani</groupId>
 	<artifactId>spring-boot-jpa-h2-db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-jpa-h2</name>
-	<description>Demo project for Spring Boot</description>
+	<name>library-management-system</name>
+	<description>Library Management System</description>
 	<url/>
 	<licenses>
 		<license/>

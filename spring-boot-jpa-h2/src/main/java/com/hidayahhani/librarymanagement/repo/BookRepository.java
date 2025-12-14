@@ -1,10 +1,10 @@
-package com.example.demo.repo;
+package com.hidayahhani.librarymanagement.repo;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.entity.Book;
+import com.hidayahhani.librarymanagement.entity.Book;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
 

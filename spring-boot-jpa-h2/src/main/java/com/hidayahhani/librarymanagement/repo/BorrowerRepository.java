@@ -1,8 +1,8 @@
-package com.example.demo.repo;
+package com.hidayahhani.librarymanagement.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.entity.Borrower;
+import com.hidayahhani.librarymanagement.entity.Borrower;
 
 public interface BorrowerRepository extends JpaRepository<Borrower, Integer> {
 
