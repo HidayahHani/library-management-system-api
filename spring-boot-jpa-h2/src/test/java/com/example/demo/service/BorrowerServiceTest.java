@@ -14,32 +14,26 @@ import com.example.demo.repo.BorrowerRepository;
 
 @ExtendWith(MockitoExtension.class)
 class BorrowerServiceTest {
-	
+
 	@Mock
 	private BorrowerRepository borrowerRepository;
-	
+
 	@InjectMocks
 	private BorrowerService borrowerService;
-	
+
 	@Test
-	void testRegisterBorrowerSuccess () {
+	void testRegisterBorrowerSuccess() {
 		Borrower borrower = new Borrower();
 		borrower.setName("Emily");
 		borrower.setEmail("emily00@gmail.com");
-		
+
 		when(borrowerRepository.save(borrower)).thenReturn(borrower);
-		
+
 		Borrower savedBorrower = borrowerService.registerBorrower(borrower);
-		
+
 		assertNotNull(savedBorrower);
 		assertEquals("Emily", savedBorrower.getName());
 		assertEquals("emily00@gmail.com", savedBorrower.getEmail());
 	}
-	
-
-//	@Test
-//	void test() {
-//		fail("Not yet implemented");
-//	}
 
 }

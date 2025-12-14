@@ -3,21 +3,18 @@ package com.example.demo.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Borrower {
 	@Id
 	@GeneratedValue
-	
+
 	private int id;
-	
+
 	@NotBlank(message = "Name is required")
 	private String name;
-	
+
 	@NotBlank(message = "Email is required")
 	private String email;
 
@@ -44,7 +41,7 @@ public class Borrower {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Borrower [id=" + id + ", name=" + name + ", email=" + email + "]";
