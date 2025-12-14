@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ public class BookService {
 		if (!existingBooks.isEmpty()) {
 			Book existing = existingBooks.get(0);
 
-			if (!existing.getTitle().equals(book.getTitle()) || !existing.getAuthor().equals(book.getAuthor())) {
+			if (!existing.getTitle().equalsIgnoreCase(book.getTitle()) || !existing.getAuthor().equalsIgnoreCase(book.getAuthor())) {
 				throw new ResponseStatusException(HttpStatus.CONFLICT,
 						"Books with the same ISBN must have the same title and author");
 			}
@@ -41,8 +42,8 @@ public class BookService {
 
 	public Book borrowBook(int bookId, int borrowerId) {
 		Book book = bookRepository.findById(bookId).orElse(null);
-
-		if (book == null) {
+		
+		if (Objects.isNull(book)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found");
 		}
 
@@ -52,7 +53,7 @@ public class BookService {
 
 		Borrower borrower = borrowerRepository.findById(borrowerId).orElse(null);
 
-		if (borrower == null) {
+		if (Objects.isNull(borrower)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Borrower does not exist");
 		}
 
@@ -65,7 +66,7 @@ public class BookService {
 	public Book returnBook(int bookId) {
 		Book book = bookRepository.findById(bookId).orElse(null);
 
-		if (book == null) {
+		if (Objects.isNull(book)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found");
 		}
 
