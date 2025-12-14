@@ -27,9 +27,11 @@ public class BookService {
 		if (!existingBooks.isEmpty()) {
 			Book existing = existingBooks.get(0);
 			
-			if (!existing.getTitle().equals(book.getTitle()) || !existing.getAuthor().equals(book.getAuthor())) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-						"Books with the same ISBN must have the same title and author");
+			if (!existing.getTitle().equals(book.getTitle()) ||
+		            !existing.getAuthor().equals(book.getAuthor())) {
+		            throw new ResponseStatusException(HttpStatus.CONFLICT,
+		                    "Books with the same ISBN must have the same title and author"
+		            );
 			}
 		}
 		return bookRepository.save(book);
@@ -43,17 +45,17 @@ public class BookService {
 		Book book = bookRepository.findById(bookId).orElse(null);
 		
 		if (book == null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Book not found");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found");
 		}
 		
 		if (book.isBorrowed()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Book is already borrowed");
+			throw new ResponseStatusException(HttpStatus.CONFLICT, "Book is already borrowed");
 		}
 		
 		Borrower borrower = borrowerRepository.findById(borrowerId).orElse(null);
 		
 		if (borrower == null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Borrower does not exist");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Borrower does not exist");
 		}
 		
 		
@@ -67,11 +69,11 @@ public class BookService {
 		Book book = bookRepository.findById(bookId).orElse(null);
 		
 		if (book == null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Book not found");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found");
 		}
 		
 		if (!book.isBorrowed()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Book is not borrowed");
+			throw new ResponseStatusException(HttpStatus.CONFLICT, "Book is not borrowed");
 		}
 		
 		book.setBorrowed(false);

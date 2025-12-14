@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +30,7 @@ public class LibraryController {
 	public Book addBook(@Valid @RequestBody Book book) {
 		return bookService.registerBook(book);
 	}
-	
+
 	@GetMapping("/books")
 	public List<Book> getAllBook() {
 		return bookService.getBooks();
@@ -40,13 +42,34 @@ public class LibraryController {
 	}
 	
 	@PostMapping("/borrowBook")
-	public Book borrowBook(@RequestParam int bookId, @RequestParam int borrowerId) {
-		return bookService.borrowBook(bookId, borrowerId);
-	}
+	public ResponseEntity<?> borrowBook(
+            @RequestParam int bookId,
+            @RequestParam int borrowerId) {
+
+        try {
+            Book book = bookService.borrowBook(bookId, borrowerId);
+            return ResponseEntity.ok(book); // 200
+
+        } catch (RuntimeException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage()); 
+        }
+    }
+
 	
 	@PostMapping("/returnBook")
-	public Book returnBook(@RequestParam int bookId) {
-		return bookService.returnBook(bookId);
-	}
+//	public Book returnBook(@RequestParam int bookId) {
+//		return bookService.returnBook(bookId);
+//	}
+	public ResponseEntity<?> returnBook(@RequestParam int bookId) {
+
+        try {
+            Book book = bookService.returnBook(bookId);
+            return ResponseEntity.ok(book); // 200
+
+        } catch (RuntimeException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage()); 
+        }
+    }
+
 
 }
