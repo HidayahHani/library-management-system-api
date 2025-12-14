@@ -88,7 +88,11 @@ You can test the endpoints using any REST client such as:
 
    ```json
    {
+<<<<<<< HEAD
      "message": "Books with the same ISBN must have the same title and author"
+=======
+      "message": "Books with the same ISBN must have the same title and author"
+>>>>>>> branch 'main' of https://github.com/HidayahHani/library-management-system-api.git
    }
    ```
 
